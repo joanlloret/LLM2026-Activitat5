@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portal informatiu del FC Barcelona. Actualitat, calendari de partits, palmarès i plantilla oficial.">
+    <meta name="author" content="Joan Lloret Gaseni">
+    <meta name="keywords" content="FC Barcelona, Barça, Spotify Camp Nou, Calendari Barça, Palmarès, La Masia">
+    <title>FC Barcelona - Web Oficial Fan | Inici</title>
+    <link rel="stylesheet" href="css/estils.css">
+</head>
+<body>
+
+    <header class="capcalera">
+        <div class="logo-container">
+            <img src="img/escut.png" alt="Escut FC Barcelona" class="logo-spin">
+            <div>
+                <h1>FC BARCELONA</h1>
+                <span class="sub-logo">MÉS QUE UN CLUB</span>
+            </div>
+        </div>
+        <nav class="menu-nav">
+            <ul>
+                <li><a href="index.html" class="actiu">Inici</a></li>
+                <li><a href="plantilla.html">Primer Equip</a></li>
+                <li><a href="socis.html">Zona Socis</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Carrusel -->
+    <section class="carrusel-container">
+        <div class="slide">
+            <img src="img/banner1.png" alt="Spotify Camp Nou">
+            <div class="text-carrusel">
+                <span class="etiqueta-noticia">ESPAI BARÇA</span>
+                <h2>SPOTIFY CAMP NOU</h2>
+                <p>El nou estadi blaugrana encapçala la transformació arquitectònica i esportiva del club.</p>
+            </div>
+        </div>
+        <div class="slide">
+            <img src="img/banner2.png" alt="Celebració equip">
+            <div class="text-carrusel">
+                <span class="etiqueta-noticia">PRIMER EQUIP</span>
+                <h2>COMPROMÍS I IDENTITAT</h2>
+                <p>Un grup consolidat que combina el talent format a La Masia amb referents internacionals.</p>
+            </div>
+        </div>
+        <div class="slide">
+            <img src="img/banner3.png" alt="Trofeus Barça">
+            <div class="text-carrusel">
+                <span class="etiqueta-noticia">HISTÒRIA</span>
+                <h2>EL LLEGUAT EUROPEU</h2>
+                <p>Cinc Copes d'Europa i més de cent títols oficials situen el club al capdamunt del futbol mundial.</p>
+            </div>
+        </div>
+        <button class="prev" onclick="canviarSlide(-1)">&#10094;</button>
+        <button class="next" onclick="canviarSlide(1)">&#10095;</button>
+    </section>
+
+    <section class="franja-proper-partit">
+        <div class="proper-partit-contingut">
+            <div class="info-matx">
+                <span class="badge-competicio">LALIGA · JORNADA 13</span>
+                <h3>FC Barcelona vs Villarreal CF</h3>
+                <p>Diumenge, 22 de novembre · 14:00 CET · Spotify Camp Nou</p>
+            </div>
+            <div class="compte-enrere-box">
+                <div class="temps-bloc"><span id="cd-dies">00</span><small>DIES</small></div>
+                <div class="temps-bloc"><span id="cd-hores">00</span><small>HORES</small></div>
+                <div class="temps-bloc"><span id="cd-min">00</span><small>MIN</small></div>
+                <div class="temps-bloc"><span id="cd-seg">00</span><small>SEG</small></div>
+            </div>
+        </div>
+    </section>
+
+    <main class="contenidor-principal">
+        
+        <!-- onmouseover i onmouseout -->
+        <section id="seccio-interactiva" class="targeta-destacada" 
+                 onmouseover="ressaltarSeccio()" 
+                 onmouseout="restaurarSeccio()">
+            <div class="info-flex">
+                <img src="img/historia.png" alt="Història Champions Barça" class="img-arrodonida">
+                <div>
+                    <span class="etiqueta-seccio">IDENTITAT I PLANTER</span>
+                    <h2>Passa el ratolí per consultar el registre històric de La Masia</h2>
+                    <p>El centre de formació del FC Barcelona estructura el model esportiu del primer equip des de la seva inauguració el 1979.</p>
+                    <p id="text-ocult" class="ocult">
+                        <strong>REGISTRE OFICIAL:</strong> El 25 de novembre de 2012, en un partit oficial de Lliga davant el Llevant UD, el FC Barcelona va alinear simultàniament onze jugadors formats a les categories inferiors del club (Valdés, Montoya, Piqué, Puyol, Alba, Busquets, Xavi, Iniesta, Pedro, Messi i Fàbregas).
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Agenda de Propers Partits -->
+        <section class="seccio-calendari">
+            <h2 class="titol-blanc">Propers Compromisos Oficials</h2>
+            <div class="graella-partits">
+                <div class="targeta-partit">
+                    <span class="competicio-tag">LALIGA · J13</span>
+                    <h4>FC Barcelona vs Villarreal CF</h4>
+                    <p>22 Nov · 14:00 CET</p>
+                    <span class="estadi-tag">Spotify Camp Nou</span>
+                </div>
+                <div class="targeta-partit">
+                    <span class="competicio-tag champions">CHAMPIONS LEAGUE · J5</span>
+                    <h4>Sabah FK vs FC Barcelona</h4>
+                    <p>25 Nov · 18:45 CET</p>
+                    <span class="estadi-tag">Baku Olympic Stadium</span>
+                </div>
+                <div class="targeta-partit">
+                    <span class="competicio-tag">LALIGA · J14</span>
+                    <h4>RC Deportivo vs FC Barcelona</h4>
+                    <p>29 Nov · 16:15 CET</p>
+                    <span class="estadi-tag">Estadi ABANCA-Riazor</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="seccio-palmares">
+            <h2 class="titol-blanc">Palmarès Principal</h2>
+            <div class="graella-trofeus">
+                <div class="trofeu-card">
+                    <span class="trofeu-num">29</span>
+                    <h4>Lligues</h4>
+                </div>
+                <div class="trofeu-card">
+                    <span class="trofeu-num">5</span>
+                    <h4>Lligues de Campions</h4>
+                </div>
+                <div class="trofeu-card">
+                    <span class="trofeu-num">32</span>
+                    <h4>Copes del Rei</h4>
+                </div>
+                <div class="trofeu-card">
+                    <span class="trofeu-num">3</span>
+                    <h4>Mundials de Clubs</h4>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Activitat 5 - Llenguatges de Marques | FC Barcelona</p>
+    </footer>
+
+    <script>
+        function ressaltarSeccio() {
+            const seccio = document.getElementById("seccio-interactiva");
+            const textOcult = document.getElementById("text-ocult");
+            
+            seccio.style.backgroundColor = "#A50044";
+            seccio.style.color = "#EDBB00";
+            textOcult.style.display = "block";
+        }
+
+        function restaurarSeccio() {
+            const seccio = document.getElementById("seccio-interactiva");
+            const textOcult = document.getElementById("text-ocult");
+            
+            seccio.style.backgroundColor = "#ffffff";
+            seccio.style.color = "#181733";
+            textOcult.style.display = "none";
+        }
+    </script>
+    <script src="components/galeria.js"></script>
+</body>
+</html>

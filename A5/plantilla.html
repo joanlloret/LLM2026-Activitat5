@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Fitxes tècniques i estadístiques oficials verificades del primer equip del FC Barcelona.">
+    <meta name="author" content="Joan Lloret Gaseni">
+    <meta name="keywords" content="Lamine Yamal, Pedri, Joan Garcia, Gavi, Pau Cubarsí, Raphinha, Plantilla FC Barcelona">
+    <title>FC Barcelona - Primer Equip i Estadístiques</title>
+    <link rel="stylesheet" href="css/estils.css">
+
+    <!--Rellotge de temps a la pàgina -->
+    <script>
+        let segonsTotals = 0;
+
+        function iniciarRellotge() {
+            setInterval(function() {
+                segonsTotals++;
+                let hores = Math.floor(segonsTotals / 3600);
+                let minuts = Math.floor((segonsTotals % 3600) / 60);
+                let segons = segonsTotals % 60;
+
+                hores = hores < 10 ? "0" + hores : hores;
+                minuts = minuts < 10 ? "0" + minuts : minuts;
+                segons = segons < 10 ? "0" + segons : segons;
+
+                const visorRellotge = document.getElementById("rellotge-sessio");
+                if (visorRellotge) {
+                    visorRellotge.textContent = "Temps de sessió a la pàgina: " + hores + ":" + minuts + ":" + segons;
+                }
+            }, 1000);
+        }
+
+        window.onload = iniciarRellotge;
+    </script>
+</head>
+<body>
+
+    <div class="barra-temps">
+        <span id="rellotge-sessio">Temps de sessió a la pàgina: 00:00:00</span>
+    </div>
+
+    <header class="capcalera">
+        <div class="logo-container">
+            <img src="img/escut.png" alt="Escut FC Barcelona" class="logo-spin">
+            <div>
+                <h1>FC BARCELONA</h1>
+                <span class="sub-logo">PRIMER EQUIP</span>
+            </div>
+        </div>
+        <nav class="menu-nav">
+            <ul>
+                <li><a href="index.html">Inici</a></li>
+                <li><a href="plantilla.html" class="actiu">Primer Equip</a></li>
+                <li><a href="socis.html">Zona Socis</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="contenidor-principal">
+        <h2 class="titol-blanc">Plantilla Oficial i Registre Estadístic</h2>
+        <p class="subtitol-blanc">Selecciona un futbolista per visualitzar la seva fitxa completa i les estadístiques oficials verificades al FC Barcelona.</p>
+
+        <div class="graella-miniatures">
+            <div class="card-thumb activa-thumb" onclick="seleccionarJugador(0, this)">
+                <img src="img/img1.png" alt="Lamine Yamal">
+                <span>10 · Lamine Yamal</span>
+            </div>
+            <div class="card-thumb" onclick="seleccionarJugador(1, this)">
+                <img src="img/img2.png" alt="Pedri González">
+                <span>8 · Pedri</span>
+            </div>
+            <div class="card-thumb" onclick="seleccionarJugador(2, this)">
+                <img src="img/img3.png" alt="Joan Garcia">
+                <span>1 · Joan Garcia</span>
+            </div>
+            <div class="card-thumb" onclick="seleccionarJugador(3, this)">
+                <img src="img/img4.png" alt="Pablo Gavi">
+                <span>6 · Gavi</span>
+            </div>
+            <div class="card-thumb" onclick="seleccionarJugador(4, this)">
+                <img src="img/img5.png" alt="Pau Cubarsí">
+                <span>5 · Pau Cubarsí</span>
+            </div>
+            <div class="card-thumb" onclick="seleccionarJugador(5, this)">
+                <img src="img/img6.png" alt="Raphinha">
+                <span>11 · Raphinha</span>
+            </div>
+        </div>
+
+        <div class="visor-gran">
+            <div class="marc-imatge-gran">
+                <img id="imatge-ampliada" src="img/img1.png" alt="Jugador seleccionat">
+            </div>
+            <div class="info-jugador">
+                <div class="capcalera-fitxa">
+                    <span id="dorsal-jugador" class="badge-dorsal">10</span>
+                    <div>
+                        <h3 id="titol-jugador">Lamine Yamal</h3>
+                        <p id="posicio-jugador" class="posicio-text">Davanter · Internacional amb Espanya</p>
+                    </div>
+                </div>
+                
+                <p id="desc-jugador" class="biografia-text">Format a La Masia des de categoria benjamí, va debutar amb el primer equip amb 15 anys. Destaca per la seva capacitat de desbordament per banda dreta, visió per a l'última passada i precisió en el xut exterior.</p>
+
+                <div class="estat-connexio">
+                    <span class="punt-verd"></span>
+                    <span id="estat-api">Registre oficial verificat · Font: fcbarcelona.cat (Només lectura)</span>
+                </div>
+
+                <div class="graella-stats">
+                    <div class="stat-box">
+                        <span id="stat1-valor" class="stat-num">167</span>
+                        <span id="stat1-nom" class="stat-label">Partits Oficials FCB</span>
+                    </div>
+                    <div class="stat-box">
+                        <span id="stat2-valor" class="stat-num">62</span>
+                        <span id="stat2-nom" class="stat-label">Gols Oficials FCB</span>
+                    </div>
+                    <div class="stat-box">
+                        <span id="stat3-valor" class="stat-num">57</span>
+                        <span id="stat3-nom" class="stat-label">Assistències FCB</span>
+                    </div>
+                </div>
+
+                <div class="nota-oficial">
+                    <span>* Estadístiques oficials acumulades al primer equip del FC Barcelona (Només lectura).</span>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Activitat 5 - Llenguatges de Marques | FC Barcelona</p>
+    </footer>
+
+    <script src="components/galeria.js"></script>
+</body>
+</html>

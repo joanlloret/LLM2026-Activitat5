@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portal oficial d'accés, registre, recuperació de clau i antiguitat per a socis del FC Barcelona.">
+    <meta name="author" content="Joan Lloret Gaseni">
+    <meta name="keywords" content="Socis FC Barcelona, Carnet Soci, Registre Soci Barça, Antiguitat">
+    <title>FC Barcelona - Zona Socis</title>
+    <link rel="stylesheet" href="css/estils.css">
+</head>
+<body>
+
+    <header class="capcalera">
+        <div class="logo-container">
+            <img src="img/escut.png" alt="Escut FC Barcelona" class="logo-spin">
+            <div>
+                <h1>FC BARCELONA</h1>
+                <span class="sub-logo">ATENCIÓ AL SOCI</span>
+            </div>
+        </div>
+        <nav class="menu-nav">
+            <ul>
+                <li><a href="index.html">Inici</a></li>
+                <li><a href="plantilla.html">Primer Equip</a></li>
+                <li><a href="socis.html" class="actiu">Zona Socis</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="contenidor-principal">
+        
+        <section id="panell-autenticacio" class="formulari-box">
+            <div class="pestanyes-soci">
+                <button type="button" id="tab-login" class="tab-btn activa" onclick="canviarPestanya('login')">Iniciar Sessió</button>
+                <button type="button" id="tab-registre" class="tab-btn" onclick="canviarPestanya('registre')">Fer-se Soci</button>
+                <button type="button" id="tab-recuperar" class="tab-btn" onclick="canviarPestanya('recuperar')">Recuperar Clau</button>
+            </div>
+
+            <form id="form-login" onsubmit="iniciarSessioSoci(event)">
+                <h2>Accés al Portal del Soci</h2>
+                <p>Introdueix el teu correu electrònic i contrasenya per consultar el teu carnet digital i antiguitat.</p>
+                
+                <div class="camp-formulari">
+                    <label for="login-email">Correu electrònic:</label>
+                    <input type="email" id="login-email" required placeholder="soci@fcbarcelona.cat">
+                </div>
+                <div class="camp-formulari">
+                    <label for="login-pass">Contrasenya:</label>
+                    <input type="password" id="login-pass" required placeholder="La teva contrasenya">
+                </div>
+                <button type="submit" class="boto-barca">Entrar al meu Compte</button>
+            </form>
+
+            <form id="form-registre" class="ocult" onsubmit="registrarSoci(event)">
+                <h2>Alta de Nou Soci</h2>
+                <p>Crea el teu compte oficial per obtenir el teu número de soci i registrar la teva antiguitat.</p>
+                
+                <div class="camp-formulari">
+                    <label for="reg-nom">Nom i Cognoms:</label>
+                    <input type="text" id="reg-nom" required placeholder="Ex: Marc Garcia Vila">
+                </div>
+                <div class="camp-formulari">
+                    <label for="reg-email">Correu electrònic:</label>
+                    <input type="email" id="reg-email" required placeholder="correu@exemple.com">
+                </div>
+                <div class="camp-formulari">
+                    <label for="reg-pass">Contrasenya (mínim 8 caràcters):</label>
+                    <input type="password" id="reg-pass" required placeholder="Mínim 8 caràcters">
+                </div>
+                <button type="submit" class="boto-barca">Crear Compte de Soci</button>
+            </form>
+
+            <form id="form-recuperar" class="ocult" onsubmit="recuperarContrasenya(event)">
+                <h2>Recuperació de Contrasenya</h2>
+                <p>Introdueix el correu electrònic amb què et vas registrar per verificar el teu compte i recuperar la clau.</p>
+                
+                <div class="camp-formulari">
+                    <label for="rec-email">Correu electrònic registrat:</label>
+                    <input type="email" id="rec-email" required placeholder="correu@exemple.com">
+                </div>
+                <button type="submit" class="boto-barca">Consultar i Recuperar Clau</button>
+                <div id="resultat-recuperacio" class="caixa-info-recuperacio ocult"></div>
+            </form>
+        </section>
+
+        <section id="panell-privat-soci" class="ocult">
+            <div class="carnet-soci">
+                <div class="carnet-header">
+                    <img src="img/escut.png" alt="Escut FCB">
+                    <div>
+                        <span class="etiqueta-carnet">CARNET OFICIAL DE SOCI</span>
+                        <h2 id="carnet-nom">Nom del Soci</h2>
+                        <p id="carnet-email">correu@exemple.com</p>
+                    </div>
+                    <div class="num-soci-box">
+                        <span>NÚM. SOCI</span>
+                        <strong id="carnet-numero">142.850</strong>
+                    </div>
+                </div>
+                
+                <div class="antiguitat-box">
+                    <p>Soci del FC Barcelona des del: <strong id="carnet-data-alta"></strong></p>
+                    <p class="temps-soci-viu">Antiguitat acumulada: <span id="comptador-antiguitat">Calculant...</span></p>
+                </div>
+
+                <button type="button" class="boto-tancar-sessio" onclick="tancarSessioSoci()">Tancar Sessió</button>
+            </div>
+
+            <!--Formulari-->
+            <div class="formulari-box" style="margin-top: 30px;">
+                <h2>Canviar la Contrasenya del Compte</h2>
+                <p>Per seguretat, introdueix la nova contrasenya dues vegades (mínim 8 caràcters).</p>
+                
+                <form id="form-password" onsubmit="validarContrasenya(event)">
+                    <div class="camp-formulari">
+                        <label for="pass1">Nova Contrasenya (mínim 8 caràcters):</label>
+                        <input type="password" id="pass1" name="pass1" placeholder="Introdueix la nova clau">
+                    </div>
+
+                    <div class="camp-formulari">
+                        <label for="pass2">Repeteix la Contrasenya:</label>
+                        <input type="password" id="pass2" name="pass2" placeholder="Torna a escriure la clau">
+                    </div>
+
+                    <button type="submit" class="boto-barca">Actualitzar Contrasenya</button>
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Activitat 5 - Llenguatges de Marques | FC Barcelona</p>
+    </footer>
+
+    <script src="components/seguretat.js"></script>
+</body>
+</html>
