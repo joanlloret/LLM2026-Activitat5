@@ -85,7 +85,6 @@ body {
     color: #181733;
 }
 
-/* Carrusel estàtic d'alta nitidesa */
 .carrusel-container {
     position: relative;
     width: 100%;
@@ -161,7 +160,6 @@ body {
     background-color: #A50044;
 }
 
-/* Franja de Proper Partit amb Compte Enrere */
 .franja-proper-partit {
     background: linear-gradient(90deg, #004D98 0%, #181733 50%, #A50044 100%);
     padding: 22px 5%;
@@ -230,7 +228,6 @@ body {
     padding: 0 20px;
 }
 
-/* Exercici 2: Targeta interactiva */
 .targeta-destacada {
     background-color: #ffffff;
     color: #181733;
@@ -270,7 +267,6 @@ body {
     border-top: 1px solid rgba(237, 187, 0, 0.5);
 }
 
-/* Calendari de Partits */
 .seccio-calendari {
     margin-top: 50px;
 }
@@ -319,7 +315,7 @@ body {
     color: #EDBB00;
 }
 
-.targeta-partit h4 {
+.targeta-partit h3 {
     font-size: 1.2rem;
     margin-bottom: 6px;
 }
@@ -331,7 +327,6 @@ body {
     color: #EDBB00;
 }
 
-/* Palmarès */
 .seccio-palmares {
     margin-top: 50px;
 }
@@ -351,6 +346,10 @@ body {
     text-align: center;
 }
 
+.trofeu-card h3 {
+    font-size: 1.05rem;
+}
+
 .trofeu-num {
     display: block;
     font-size: 2.6rem;
@@ -358,7 +357,6 @@ body {
     color: #EDBB00;
 }
 
-/* Galeria de 6 miniatures completes */
 .graella-miniatures {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
@@ -406,7 +404,6 @@ body {
     color: #EDBB00;
 }
 
-/* Visor gran */
 .visor-gran {
     background: #ffffff;
     color: #181733;
@@ -529,7 +526,6 @@ body {
     font-style: italic;
 }
 
-/* Zona Socis */
 .formulari-box {
     max-width: 560px;
     margin: 20px auto;
@@ -614,7 +610,6 @@ body {
     color: #181733;
 }
 
-/* Carnet Digital Soci */
 .carnet-soci {
     max-width: 650px;
     margin: 0 auto;
